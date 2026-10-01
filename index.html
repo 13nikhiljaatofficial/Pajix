@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert JPG images to PDF and merge PDF files securely in your browser with PDFNest.">
+  <meta name="theme-color" content="#f8fafc">
+  <title>PDFNest — Simple PDF tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="PDFNest home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v7h6M12 16h9M12 21h9"/></svg></span>
+      <span>PDF<span class="brand-accent">Nest</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#tools">Tools</a><a href="#how-it-works">How it works</a>
+    </nav>
+    <a class="header-cta" href="#tools">Use free tools <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> SIMPLE TOOLS. CLEAN RESULTS.</div>
+      <h1>Your files, ready<br><span>in a few clicks.</span></h1>
+      <p class="hero-copy">Convert images into polished PDFs or combine documents in seconds. No account needed, and your files stay on your device.</p>
+      <div class="hero-points">
+        <span><span class="check">✓</span> Free to use</span>
+        <span><span class="check">✓</span> Files processed locally</span>
+        <span><span class="check">✓</span> Works on mobile</span>
+      </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+      <div class="section-heading">
+        <div><p class="section-kicker">PDF WORKSPACE</p><h2>What would you like to do?</h2></div>
+        <span class="secure-pill"><span>●</span> Private by design</span>
+      </div>
+
+      <div class="tool-grid">
+        <article class="tool-card featured">
+          <div class="tool-icon image-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="5" width="26" height="32" rx="4"/><path d="M15 28l6-7 5 5 3-3 5 6"/><circle cx="17" cy="14" r="2"/><path d="M28 34v7h12V16h-6"/></svg></div>
+          <div class="card-label">CONVERT</div>
+          <h3>JPG to PDF</h3>
+          <p>Turn one or more images into a neatly arranged PDF. Set page size, orientation and margins.</p>
+          <button class="primary-btn" id="open-image-tool">Choose images <span aria-hidden="true">→</span></button>
+          <div class="card-foot"><span class="mini-check">✓</span> JPG, JPEG and PNG</div>
+        </article>
+
+        <article class="tool-card">
+          <div class="tool-icon merge-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 8h19l6 6v8"/><path d="M29 8v7h6"/><path d="M10 8v17"/><path d="M6 25h8M10 21v8"/><path d="M19 26h19v16H19z"/><path d="M24 31h9M24 35h9"/></svg></div>
+          <div class="card-label">ORGANIZE</div>
+          <h3>Merge PDF</h3>
+          <p>Combine multiple PDF files into one document. Arrange files in the order you want.</p>
+          <button class="secondary-btn" id="open-merge-tool">Choose PDF files <span aria-hidden="true">→</span></button>
+          <div class="card-foot"><span class="mini-check">✓</span> Combine multiple PDFs</div>
+        </article>
+      </div>
+      <div class="ad-slot" aria-label="Advertisement space"><span>ADVERTISEMENT</span><p>Reserved space for ads</p></div>
+    </section>
+
+    <section class="workspace hidden" id="image-workspace">
+      <div class="workspace-heading"><div><p class="section-kicker">IMAGE CONVERTER</p><h2>JPG to PDF</h2><p>Add images, arrange them, choose your page settings, then create your PDF.</p></div><button class="close-workspace" data-close="image-workspace" aria-label="Close tool">×</button></div>
+      <div class="workspace-layout">
+        <div class="upload-panel">
+          <input type="file" id="image-input" accept="image/jpeg,image/png" multiple hidden>
+          <div class="dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Choose or drop images">
+            <div class="upload-symbol">↑</div><h3>Drop your images here</h3><p>or click to browse your device</p><span class="file-hint">JPG, JPEG, PNG</span>
+          </div>
+          <div class="file-list-head"><strong>Selected images</strong><span id="image-count">0 files</span></div>
+          <div class="file-list" id="image-list"><div class="empty-state">Your selected images will appear here.</div></div>
+          <div class="list-actions"><button class="text-btn" id="clear-images">Clear all</button><span class="small-muted">Use ↑ and ↓ to reorder</span></div>
+        </div>
+        <aside class="settings-panel">
+          <h3>PDF settings</h3>
+          <label>Page size<select id="page-size"><option value="a4">A4</option><option value="letter">US Letter</option><option value="fit">Fit to image</option></select></label>
+          <label>Orientation<select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label>
+          <label>Page margin<select id="image-margin"><option value="0">No margin</option><option value="10" selected>Small (10 mm)</option><option value="20">Large (20 mm)</option></select></label>
+          <label>Image placement<select id="image-fit"><option value="contain">Fit entire image</option><option value="cover">Fill page (crop)</option></select></label>
+          <button class="primary-btn full-btn" id="convert-images" disabled>Create PDF <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span>🔒</span> Images are processed in your browser and are not uploaded to a server.</p>
+          <p class="status" id="image-status" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="workspace hidden" id="merge-workspace">
+      <div class="workspace-heading"><div><p class="section-kicker">PDF ORGANIZER</p><h2>Merge PDF files</h2><p>Add at least two PDFs, arrange them, and combine them into one file.</p></div><button class="close-workspace" data-close="merge-workspace" aria-label="Close tool">×</button></div>
+      <div class="workspace-layout">
+        <div class="upload-panel">
+          <input type="file" id="pdf-input" accept="application/pdf,.pdf" multiple hidden>
+          <div class="dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Choose or drop PDF files">
+            <div class="upload-symbol">↑</div><h3>Drop your PDF files here</h3><p>or click to browse your device</p><span class="file-hint">PDF files only</span>
+          </div>
+          <div class="file-list-head"><strong>Selected PDFs</strong><span id="pdf-count">0 files</span></div>
+          <div class="file-list" id="pdf-list"><div class="empty-state">Your selected PDFs will appear here.</div></div>
+          <div class="list-actions"><button class="text-btn" id="clear-pdfs">Clear all</button><span class="small-muted">Use ↑ and ↓ to reorder</span></div>
+        </div>
+        <aside class="settings-panel">
+          <h3>Merge settings</h3>
+          <div class="setting-info"><span class="info-icon">i</span><div><strong>File order matters</strong><p>Your merged PDF follows the order shown in the list. Use the arrows to change it.</p></div></div>
+          <div class="setting-info"><span class="info-icon">🔒</span><div><strong>Local processing</strong><p>Your PDF files stay in this browser session and are not sent to a server.</p></div></div>
+          <button class="primary-btn full-btn" id="merge-pdfs" disabled>Merge PDFs <span aria-hidden="true">→</span></button>
+          <p class="status" id="pdf-status" role="status"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <p class="section-kicker">MADE TO BE SIMPLE</p><h2>From files to finished.</h2>
+      <div class="steps">
+        <div class="step"><span class="step-number">01</span><h3>Select your files</h3><p>Choose images or PDFs from your device.</p></div>
+        <div class="step"><span class="step-number">02</span><h3>Arrange and adjust</h3><p>Set your order and options before processing.</p></div>
+        <div class="step"><span class="step-number">03</span><h3>Download your PDF</h3><p>Your finished document is ready to save.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v7h6M12 16h9M12 21h9"/></svg></span><span>PDF<span class="brand-accent">Nest</span></span></a>
+    <p>Simple PDF tools, right in your browser.</p>
+    <div class="footer-links"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="mailto:hello@example.com">Contact</a></div>
+    <small>© <span id="year"></span> PDFNest. Replace this brand and contact email before publishing.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
