@@ -1,4 +1,4 @@
-# PDFNest — first version
+# Pajix — first version
 
 A responsive, browser-based PDF toolkit starter with:
 - JPG/JPEG/PNG to PDF
@@ -25,8 +25,8 @@ The PDF library (`pdf-lib`) is loaded from jsDelivr CDN, so an internet connecti
 6. Wait for GitHub Pages to publish the site. Your URL will be similar to `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`.
 
 ## Before public launch
-- Replace the placeholder brand `PDFNest` if desired.
-- Replace `hello@example.com` with a real contact email.
+- Replace the placeholder brand `Pajix` if desired.
+- Replace `13nikhiljaatofficial@gmail.com` with a real contact email.
 - Add real Privacy Policy, Terms, About, and Contact pages. The footer links are placeholders in this starter.
 - Add an ad network only after checking its current site approval and policy requirements. The dashed ad area is a placeholder, not a live ad.
 - Test with ordinary, scanned, and larger PDFs on desktop and mobile.
