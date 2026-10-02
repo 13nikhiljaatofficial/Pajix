@@ -1,130 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Convert JPG images to PDF and merge PDF files securely in your browser with PDFNest.">
-  <meta name="theme-color" content="#f8fafc">
-  <title>Pajix — Simple PDF tools</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pajix — private browser-based tools for converting images to PDF and merging PDF files.">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="color-scheme" content="dark">
+  <title>Pajix — Files, without the friction.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script defer src="app.js"></script>
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="Pajix home">
-      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v7h6M12 16h9M12 21h9"/></svg></span>
-      <span>PDF<span class="brand-accent">Nest</span></span>
+    <a class="brand" href="#top" aria-label="Pajix home">
+      <span class="brand-symbol" aria-hidden="true"><i></i><b></b></span>
+      <span>PAJIX</span>
     </a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#tools">Tools</a><a href="#how-it-works">How it works</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#tools">Tools</a>
+      <a href="#workflow">Process</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <a class="header-cta" href="#tools">Use free tools <span aria-hidden="true">↗</span></a>
+    <a class="nav-action" href="#tools">Open workspace <span>↗</span></a>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> SIMPLE TOOLS. CLEAN RESULTS.</div>
-      <h1>Your files, ready<br><span>in a few clicks.</span></h1>
-      <p class="hero-copy">Convert images into polished PDFs or combine documents in seconds. No account needed, and your files stay on your device.</p>
-      <div class="hero-points">
-        <span><span class="check">✓</span> Free to use</span>
-        <span><span class="check">✓</span> Files processed locally</span>
-        <span><span class="check">✓</span> Works on mobile</span>
+      <div class="hero-copy-wrap">
+        <div class="micro-label"><span class="pulse"></span> BROWSER-FIRST FILE TOOLS</div>
+        <h1>Files,<br><em>without</em> the friction.</h1>
+        <p class="hero-copy">Convert images into PDFs, merge documents and keep the whole workflow on your device.</p>
+        <div class="hero-actions">
+          <a class="hero-button" href="#tools">Start with a file <span>↓</span></a>
+          <span class="hero-note">No account · no upload queue</span>
+        </div>
+      </div>
+
+      <div class="orbital" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="core-card">
+          <div class="core-top"><span>PAJIX / 01</span><span>LOCAL</span></div>
+          <div class="core-glyph"><span class="g-square"></span><span class="g-arrow">↗</span></div>
+          <div class="core-title">YOUR FILE<br><strong>STAYS HERE.</strong></div>
+          <div class="core-line"><span></span><span></span><span></span></div>
+        </div>
+        <div class="float-tag tag-one">JPG → PDF</div>
+        <div class="float-tag tag-two">PDF + PDF → 1</div>
+        <div class="float-tag tag-three">LOCAL / READY</div>
       </div>
     </section>
 
-    <section class="tools-section" id="tools">
-      <div class="section-heading">
-        <div><p class="section-kicker">PDF WORKSPACE</p><h2>What would you like to do?</h2></div>
-        <span class="secure-pill"><span>●</span> Private by design</span>
+    <section class="tool-zone" id="tools">
+      <div class="section-intro">
+        <div><span class="index">01</span><span class="micro-label">PAJIX WORKSPACE</span></div>
+        <h2>Pick a move.<br><span>Your files do the rest.</span></h2>
       </div>
 
       <div class="tool-grid">
-        <article class="tool-card featured">
-          <div class="tool-icon image-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="8" y="5" width="26" height="32" rx="4"/><path d="M15 28l6-7 5 5 3-3 5 6"/><circle cx="17" cy="14" r="2"/><path d="M28 34v7h12V16h-6"/></svg></div>
-          <div class="card-label">CONVERT</div>
-          <h3>JPG to PDF</h3>
-          <p>Turn one or more images into a neatly arranged PDF. Set page size, orientation and margins.</p>
-          <button class="primary-btn" id="open-image-tool">Choose images <span aria-hidden="true">→</span></button>
-          <div class="card-foot"><span class="mini-check">✓</span> JPG, JPEG and PNG</div>
+        <article class="tool-card card-convert">
+          <div class="card-top"><span class="tool-index">A / CONVERT</span><span class="arrow-corner">↗</span></div>
+          <div class="tool-symbol image-symbol"><i></i><b></b><span></span></div>
+          <h3>JPG <span>to</span> PDF</h3>
+          <p>Build a clean PDF from one or many JPG, PNG or WEBP images. Page size, orientation and margins are yours.</p>
+          <button class="launch-button" id="open-image-tool">Choose images <span>→</span></button>
+          <div class="card-meta"><span>01 / 04</span><span>JPG · PNG · WEBP</span></div>
         </article>
 
-        <article class="tool-card">
-          <div class="tool-icon merge-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 8h19l6 6v8"/><path d="M29 8v7h6"/><path d="M10 8v17"/><path d="M6 25h8M10 21v8"/><path d="M19 26h19v16H19z"/><path d="M24 31h9M24 35h9"/></svg></div>
-          <div class="card-label">ORGANIZE</div>
-          <h3>Merge PDF</h3>
-          <p>Combine multiple PDF files into one document. Arrange files in the order you want.</p>
-          <button class="secondary-btn" id="open-merge-tool">Choose PDF files <span aria-hidden="true">→</span></button>
-          <div class="card-foot"><span class="mini-check">✓</span> Combine multiple PDFs</div>
+        <article class="tool-card card-merge">
+          <div class="card-top"><span class="tool-index">B / ORGANIZE</span><span class="arrow-corner">↗</span></div>
+          <div class="merge-symbol"><span>PDF</span><span>+</span><span>PDF</span></div>
+          <h3>Merge <span>PDF</span></h3>
+          <p>Stack documents in the exact order you want, then turn them into one downloadable PDF.</p>
+          <button class="launch-button dark-button" id="open-merge-tool">Choose PDFs <span>→</span></button>
+          <div class="card-meta"><span>02 / 04</span><span>PDF ONLY</span></div>
         </article>
       </div>
-      <div class="ad-slot" aria-label="Advertisement space"><span>ADVERTISEMENT</span><p>Reserved space for ads</p></div>
+
+      <div class="coming-strip"><span>MORE TOOLS / NEXT</span><b>Compress · Split · PDF → JPG · DOCX → PDF</b><i>COMING LATER</i></div>
     </section>
 
-    <section class="workspace hidden" id="image-workspace">
-      <div class="workspace-heading"><div><p class="section-kicker">IMAGE CONVERTER</p><h2>JPG to PDF</h2><p>Add images, arrange them, choose your page settings, then create your PDF.</p></div><button class="close-workspace" data-close="image-workspace" aria-label="Close tool">×</button></div>
-      <div class="workspace-layout">
-        <div class="upload-panel">
-          <input type="file" id="image-input" accept="image/jpeg,image/png" multiple hidden>
-          <div class="dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Choose or drop images">
-            <div class="upload-symbol">↑</div><h3>Drop your images here</h3><p>or click to browse your device</p><span class="file-hint">JPG, JPEG, PNG</span>
-          </div>
-          <div class="file-list-head"><strong>Selected images</strong><span id="image-count">0 files</span></div>
-          <div class="file-list" id="image-list"><div class="empty-state">Your selected images will appear here.</div></div>
-          <div class="list-actions"><button class="text-btn" id="clear-images">Clear all</button><span class="small-muted">Use ↑ and ↓ to reorder</span></div>
-        </div>
-        <aside class="settings-panel">
-          <h3>PDF settings</h3>
-          <label>Page size<select id="page-size"><option value="a4">A4</option><option value="letter">US Letter</option><option value="fit">Fit to image</option></select></label>
-          <label>Orientation<select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option></select></label>
-          <label>Page margin<select id="image-margin"><option value="0">No margin</option><option value="10" selected>Small (10 mm)</option><option value="20">Large (20 mm)</option></select></label>
-          <label>Image placement<select id="image-fit"><option value="contain">Fit entire image</option><option value="cover">Fill page (crop)</option></select></label>
-          <button class="primary-btn full-btn" id="convert-images" disabled>Create PDF <span aria-hidden="true">→</span></button>
-          <p class="privacy-note"><span>🔒</span> Images are processed in your browser and are not uploaded to a server.</p>
-          <p class="status" id="image-status" role="status"></p>
-        </aside>
+    <section class="workspace" id="workspace" hidden>
+      <div class="workspace-head">
+        <div><span class="micro-label" id="workspace-eyebrow">CONVERT / 01</span><h2 id="workspace-title">JPG to PDF</h2><p id="workspace-description">Drop your images into the local workspace.</p></div>
+        <button class="close-workspace" id="close-workspace" aria-label="Close workspace">×</button>
       </div>
-    </section>
-
-    <section class="workspace hidden" id="merge-workspace">
-      <div class="workspace-heading"><div><p class="section-kicker">PDF ORGANIZER</p><h2>Merge PDF files</h2><p>Add at least two PDFs, arrange them, and combine them into one file.</p></div><button class="close-workspace" data-close="merge-workspace" aria-label="Close tool">×</button></div>
-      <div class="workspace-layout">
+      <div class="workspace-grid">
         <div class="upload-panel">
+          <input type="file" id="image-input" accept="image/jpeg,image/png,image/webp" multiple hidden>
           <input type="file" id="pdf-input" accept="application/pdf,.pdf" multiple hidden>
-          <div class="dropzone" id="pdf-dropzone" tabindex="0" role="button" aria-label="Choose or drop PDF files">
-            <div class="upload-symbol">↑</div><h3>Drop your PDF files here</h3><p>or click to browse your device</p><span class="file-hint">PDF files only</span>
+          <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose files">
+            <div class="drop-index">DROP / 01</div>
+            <div class="upload-symbol">＋</div>
+            <h3 id="drop-title">Drop images here</h3>
+            <p id="drop-copy">or click to browse your device</p>
+            <span id="file-hint">JPG, PNG or WEBP · multiple files supported</span>
           </div>
-          <div class="file-list-head"><strong>Selected PDFs</strong><span id="pdf-count">0 files</span></div>
-          <div class="file-list" id="pdf-list"><div class="empty-state">Your selected PDFs will appear here.</div></div>
-          <div class="list-actions"><button class="text-btn" id="clear-pdfs">Clear all</button><span class="small-muted">Use ↑ and ↓ to reorder</span></div>
+          <div class="file-list-head"><strong id="file-count">No files selected</strong><button class="text-button" id="clear-files" hidden>Clear</button></div>
+          <div class="file-list" id="file-list"></div>
         </div>
         <aside class="settings-panel">
-          <h3>Merge settings</h3>
-          <div class="setting-info"><span class="info-icon">i</span><div><strong>File order matters</strong><p>Your merged PDF follows the order shown in the list. Use the arrows to change it.</p></div></div>
-          <div class="setting-info"><span class="info-icon">🔒</span><div><strong>Local processing</strong><p>Your PDF files stay in this browser session and are not sent to a server.</p></div></div>
-          <button class="primary-btn full-btn" id="merge-pdfs" disabled>Merge PDFs <span aria-hidden="true">→</span></button>
-          <p class="status" id="pdf-status" role="status"></p>
+          <div class="panel-label">SETTINGS / <span id="settings-mode">PDF</span></div>
+          <div id="image-settings">
+            <label for="page-size">Page size</label>
+            <select id="page-size"><option value="a4">A4</option><option value="letter">US Letter</option><option value="fit">Fit to image</option></select>
+            <label for="orientation">Orientation</label>
+            <select id="orientation"><option value="portrait">Portrait</option><option value="landscape">Landscape</option><option value="auto">Auto / image</option></select>
+            <label for="margin">Margin <output id="margin-value">12 mm</output></label>
+            <input id="margin" type="range" min="0" max="30" value="12">
+            <div class="range-labels"><span>0</span><span>30 mm</span></div>
+            <label for="image-fit">Placement</label>
+            <select id="image-fit"><option value="contain">Fit inside page</option><option value="cover">Fill page / crop</option></select>
+          </div>
+          <div id="merge-settings" hidden><div class="info-box"><strong>Order matters.</strong><br>Use ↑ and ↓ beside each file to set the final document order before merging.</div></div>
+          <button class="process-button" id="process-button" disabled>Create PDF <span>→</span></button>
+          <p class="privacy-note"><span>●</span> Processing happens in this browser.</p>
+          <div class="error-message" id="error-message" role="alert"></div>
+          <div class="success-message" id="success-message" hidden><div><strong>READY.</strong><span>Your document is prepared.</span></div><button class="download-button" id="download-button">Download ↓</button></div>
         </aside>
       </div>
     </section>
 
-    <section class="how-section" id="how-it-works">
-      <p class="section-kicker">MADE TO BE SIMPLE</p><h2>From files to finished.</h2>
-      <div class="steps">
-        <div class="step"><span class="step-number">01</span><h3>Select your files</h3><p>Choose images or PDFs from your device.</p></div>
-        <div class="step"><span class="step-number">02</span><h3>Arrange and adjust</h3><p>Set your order and options before processing.</p></div>
-        <div class="step"><span class="step-number">03</span><h3>Download your PDF</h3><p>Your finished document is ready to save.</p></div>
+    <section class="workflow" id="workflow">
+      <div class="section-intro compact"><div><span class="index">02</span><span class="micro-label">THE PAJIX LOOP</span></div><h2>Three moves.<br><span>Zero file drama.</span></h2></div>
+      <div class="workflow-list">
+        <div class="workflow-row"><span class="row-no">01</span><div class="row-icon">＋</div><div><h3>Bring it in</h3><p>Choose files or drop them into the workspace.</p></div><b>INPUT</b></div>
+        <div class="workflow-row"><span class="row-no">02</span><div class="row-icon">◌</div><div><h3>Shape it</h3><p>Arrange pages and adjust the options you actually need.</p></div><b>EDIT</b></div>
+        <div class="workflow-row"><span class="row-no">03</span><div class="row-icon">↓</div><div><h3>Take it out</h3><p>Create the PDF and download it straight to your device.</p></div><b>EXPORT</b></div>
       </div>
+    </section>
+
+    <section class="privacy" id="privacy">
+      <div class="privacy-mark"><span>LOCAL</span><strong>↗</strong></div>
+      <div><span class="micro-label">03 / PRIVACY</span><h2>Small footprint.<br>Private by default.</h2><p>Pajix is designed around browser-side processing for the tools in this version. Selected files are handled by your browser rather than sent to a Pajix upload server.</p></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div><span class="micro-label">04 / CONTACT</span><h2>Need to reach<br><span>Pajix?</span></h2></div>
+      <div class="contact-card"><span>SUPPORT / BUSINESS</span><a id="contact-email" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a><small>Replace this placeholder with your real support email before publishing.</small></div>
     </section>
   </main>
 
-  <footer class="footer">
-    <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 3h11l6 6v20H8z"/><path d="M19 3v7h6M12 16h9M12 21h9"/></svg></span><span>PDF<span class="brand-accent">Nest</span></span></a>
-    <p>Simple PDF tools, right in your browser.</p>
-    <div class="footer-links"><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="mailto:hello@example.com">Contact</a></div>
-    <small>© <span id="year"></span> Pajix. Replace this brand and contact email before publishing.</small>
+  <footer>
+    <div class="footer-brand"><span class="brand-symbol" aria-hidden="true"><i></i><b></b></span><strong>PAJIX</strong></div>
+    <span>Files, without the friction.</span>
+    <div class="footer-links"><a href="#privacy">Privacy</a><a href="#contact">Contact</a><span>© <span id="year"></span> Pajix</span></div>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>
