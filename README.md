@@ -1,38 +1,33 @@
-# Pajix — first version
+# PAJIX — GitHub Pages
 
-A responsive, browser-based PDF toolkit starter with:
-- JPG/JPEG/PNG to PDF
-- Merge PDF files
-- Reordering and removing selected files
-- A4 / US Letter / fit-to-image page sizes
-- Portrait / landscape orientation
-- No-margin / 10 mm / 20 mm margins
-- Local browser processing for these tools
+Pajix is a browser-first file utility website. This version includes:
 
-## Run locally
-1. Extract this ZIP.
-2. Open `index.html` in a modern browser with an internet connection.
-3. Try JPG to PDF or Merge PDF.
+- JPG / PNG / WEBP → PDF
+- PDF merge with manual ordering
+- A4, Letter and image-fit page modes
+- Portrait, landscape and auto orientation
+- Adjustable margins
+- Contain / cover image placement
+- Client-side processing with PDF-Lib
+- Responsive dark interface designed specifically for Pajix
 
-The PDF library (`pdf-lib`) is loaded from jsDelivr CDN, so an internet connection is needed for PDF processing.
+## Publish on GitHub Pages
 
-## Publish with GitHub Pages
-1. Create a **public** GitHub repository.
-2. Upload `index.html`, `style.css`, `app.js`, and `README.md` to the repository root.
-3. Open **Settings → Pages**.
-4. Under Build and deployment, choose **Deploy from a branch**.
-5. Choose `main` and `/ (root)`, then Save.
-6. Wait for GitHub Pages to publish the site. Your URL will be similar to `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`.
+1. Upload all files in this folder to a GitHub repository.
+2. Go to **Settings → Pages**.
+3. Select the branch containing `index.html` and `/root`.
+4. Save and wait for GitHub Pages to publish.
 
-## Before public launch
-- Replace the placeholder brand `Pajix` if desired.
-- Replace `13nikhiljaatofficial@gmail.com` with a real contact email.
-- Add real Privacy Policy, Terms, About, and Contact pages. The footer links are placeholders in this starter.
-- Add an ad network only after checking its current site approval and policy requirements. The dashed ad area is a placeholder, not a live ad.
-- Test with ordinary, scanned, and larger PDFs on desktop and mobile.
+## Before publishing
 
-## Notes and limitations
-- The current version does **not** convert DOC/DOCX to PDF.
-- The current version does **not** adjust margins of an existing PDF. The margin setting applies to images when creating a new PDF.
-- “Fill page (crop)” currently uses a safe fit-to-page behavior because cropping is not implemented in this first version.
-- This is a starter project, not a guarantee of ad approval or income.
+Open `index.html` and replace:
+
+`YOUR_EMAIL@example.com`
+
+with the real Pajix support/contact email.
+
+Also review `SITE-CHECKLIST.md` for branding, privacy, legal, analytics and monetization details.
+
+## Important technical note
+
+PDF-Lib is loaded from cdnjs. Therefore the conversion engine needs an internet connection when the page first loads. The selected files themselves are processed in the browser by this site version.
