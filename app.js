@@ -20,6 +20,7 @@
     $("process-button").disabled=true; renderFiles(); workspace.scrollIntoView({behavior:"smooth",block:"start"});
   }
   $("open-image-tool").onclick=()=>{setMode("image");imageInput.click()};
+  $("start-with-file").onclick=()=>{setMode("image"); setTimeout(()=>imageInput.click(),250)};
   $("open-merge-tool").onclick=()=>{setMode("merge");pdfInput.click()};
   $("close-workspace").onclick=()=>{workspace.hidden=true;clearOutput()};
   $("margin").oninput=()=>$("margin-value").textContent=`${$("margin").value} mm`;
