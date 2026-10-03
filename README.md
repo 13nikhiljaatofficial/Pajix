@@ -31,3 +31,8 @@ Also review `SITE-CHECKLIST.md` for branding, privacy, legal, analytics and mone
 ## Important technical note
 
 PDF-Lib is loaded from cdnjs. Therefore the conversion engine needs an internet connection when the page first loads. The selected files themselves are processed in the browser by this site version.
+
+
+## v3 UI fixes
+- Removed the horizontal divider line from the JPG→PDF and Merge PDF cards.
+- “Start with a file” now opens the JPG/PNG/WEBP picker and smoothly moves to the workspace first.
